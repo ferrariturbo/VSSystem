@@ -6,11 +6,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
 </script>
 <script>
-alert("I am an alert box!");
-console.log("data is coming");
+//alert("I am an alert box!");
+//console.log("data is coming");
 	$(document).ready(function() {
-		//setInterval("getMarketData()", 2000);	// Send request every 2 seconds
-		getMarketData();
+		setInterval("getMarketData()", 2000);	// Send request every 2 seconds
+		//getMarketData();
 		  
 		
 	});
@@ -35,9 +35,37 @@ console.log("data is coming");
 		$(data).find("stocks").each(function() { 
 			console.log("in each show data");
 		    var field = $(this);  
-		    var fName = field.attr("Name");  
+<<<<<<< HEAD
+		    var id =field.find("id").text();
+		   // console.log(id);
+		    var name = field.find("name").text();  
+		   // console.log(name);
+		    var price = field.find("realTimePrice").text(); 
+		    var change = field.find("changeValue").text();
+		    var changeRate = field.find("changePercentage").text();
+		    var color;
+		    if (change>0) color = "green";
+			else if (change<0) color="red";
+			else color="black";
+			rows = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + price + "</td><td>"+
+				"<font color=" + color + ">" + change + "</font></td><td>"+
+				"<font color=" + color + ">" + changeRate + "</font></td></tr>";
+			$(rows).appendTo("#stocks");
+		    
+=======
+		    var color;
+		    var id = field.find("id").text(); 
+		    var name = field.find("name").text(); 
 		    var dataType = field.find("realTimePrice").text(); 
+		    var change =  field.find("changeValue").text(); 
+		    if (change>0) color = "green";
+			else if (change<0) color="red";
+			else color="black";
+		    rows = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + dataType + "</td><td>" + 
+			"<font color="+color+">" + change + "</font></td></tr>";
+		$(rows).appendTo("#stocks");
 		    console.log(dataType);
+>>>>>>> origin/master
 		});  
 		
 		
@@ -60,11 +88,17 @@ console.log("data is coming");
 </head>
 <body>
 <h2><font color="blue">Market Data + REST</font></h2>
-<table id="stockList" border="1" width="300">
+<table id="stockList" border="1" width="600">
 	<tr>
 		<th>Stock ID</th>
+<<<<<<< HEAD
+		<th>Name</th>
+=======
+		<th>Stock Name</th>
+>>>>>>> origin/master
 		<th>Price</th>
 		<th>Change</th>
+		<th>Change rate</th>
 	</tr>
 	<tbody id="stocks"></tbody>
 </table>
