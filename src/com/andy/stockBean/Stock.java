@@ -15,28 +15,17 @@ public class Stock {
 	private float realTimePrice;
 	private String changeValue;
 	private String changePercentage;
-<<<<<<< HEAD
-	private String name;
 
-=======
+
 	private	String name;
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
->>>>>>> origin/master
+
 	private BigDecimal volume;
 	private double adj_close;
 	private String bdate;
 	private double ocDiff;
 	private double hlDiff;
-<<<<<<< HEAD
-=======
-	
->>>>>>> origin/master
+
 	@XmlElement
 	public String getId() {
 		return id;

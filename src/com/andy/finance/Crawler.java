@@ -17,7 +17,7 @@ public class Crawler {
 	public Stock getStock(){
 		
 
-		String url = "http://www.etnet.com.hk/www/tc/stocks/realtime/quote.php?code=00939";
+		String url = "http://www.etnet.com.hk/www/tc/stocks/realtime/quote.php?code=0939";
 		long start = System.currentTimeMillis();
 		Stock stock = new Stock();
 		
@@ -46,72 +46,12 @@ public class Crawler {
 		
 		
 		Elements test = doc.getElementById("StkDetailMainBox").getElementsByTag("span");
-<<<<<<< HEAD
 		Elements lowest = doc.select("span[class$=down]");
 		Elements highest = doc.select("span[class$=up]");
 		String title = doc.getElementById("StkQuoteHeader").text();
 		
 		stock.setId(title.substring(0,5));
 		stock.setName(title.substring(6));
-=======
-		
-		Elements highest = doc.select("span[class$=up]");
-		Elements lowest = doc.select("span[class$=down]");
-	//	System.out.println(lowest.size());
-		
-		if(highest.size()<=1){
-			//System.out.println("empty as usual");
-			stock.setHigh(Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(4).text()));
-			
-			if(lowest.size()>0){
-				//System.out.println("empty as usual");
-				stock.setLow(Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(12).text()));
-				//System.out.println(high);
-			}else{
-				//System.out.println("not empty");
-				//System.out.println(e.size());
-				stock.setLow(Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(11).text()));
-				//System.out.println(high);
-			}
-			
-			
-			//low = Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(12).text());
-			//System.out.println(high);
-		}else{
-			//System.out.println("not empty");
-			//System.out.println(e.size());
-			stock.setHigh(Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(5).text()));
-			stock.setLow(Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(13).text()));
-			//System.out.println(high);
-		}
-		
-		
-		
-		
-		stock.setId(doc.getElementById("StkQuoteHeader").text().substring(0,5));
-		stock.setName(doc.getElementById("StkQuoteHeader").text().substring(6));
-		stock.setRealTimePrice (Float.parseFloat(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(0).text().substring(0, 5)));
-		stock.setChangeValue(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(1).text().substring(0, 6));
-		stock.setChangePercentage(doc.getElementById("StkDetailMainBox").getElementsByTag("span").get(1).text().substring(8, 15));
-		
-		
-		
-		
-		
-		
-		
-		
-		System.out.println("Id is:"+stock.getId());
-		System.out.println("Id is:"+stock.getName());
-		System.out.println("Change Value is:" +stock.getChangeValue()); 
-		System.out.println("Change Percentage is:" +stock.getChangePercentage()); 
-		System.out.println("Low is:" +stock.getLow()); 
-		System.out.println("High is:" +stock.getHigh()); 
-		System.out.println("Real time price is:" +stock.getRealTimePrice()); 
-		
-		System.out.println("###############" +test); 
-
->>>>>>> origin/master
 		
 		
 		
