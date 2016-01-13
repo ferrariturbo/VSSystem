@@ -83,7 +83,7 @@ public class Crawler {
 		System.out.println("High is:" +stock.getHigh()); 
 		System.out.println("Real time price is:" +stock.getRealTimePrice()); 
 		
-		//System.out.println(test);
+		System.out.println("good!!");
 
 		
 		return stock;
